@@ -88,9 +88,9 @@ class Api {
 }
 
 const options = {
-  link: 'https://mesto.nomoreparties.co/v1/cohort-55/',
+  link: 'https://api.sofyajeune.mesto.nomoredomains.work',
   headers: {
-      authorization: '129cec41-0265-437c-8285-b8860fe417f8',
+      authorization: `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json'
   }
 }
