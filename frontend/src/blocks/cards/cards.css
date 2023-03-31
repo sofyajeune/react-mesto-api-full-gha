@@ -1,0 +1,24 @@
+.cards {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 282px));
+    grid-column-gap: 17px;
+    grid-row-gap: 20px;
+    justify-content: center;
+    justify-items: stretch;
+    align-items: stretch;
+    padding: 0;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(40%, 282px));
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cards {
+        grid-template-columns: minmax(90%, 282px);
+    }
+}

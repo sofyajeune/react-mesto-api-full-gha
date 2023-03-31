@@ -1,0 +1,6 @@
+.popup__photo {
+    max-width: inherit;
+    max-height: inherit;
+    padding: 0;
+    margin: 0;
+}

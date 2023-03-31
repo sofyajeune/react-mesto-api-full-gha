@@ -1,0 +1,34 @@
+.profile__plus-button {
+    background-image: url(../../../images/profile__plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    background-color: inherit;
+    margin-left: auto;
+    transition: opacity .2s linear;
+}
+
+
+@media screen and (max-width: 800px) {
+    .profile__plus-button {
+        width: 90%;
+        margin: 0 auto;
+        background-size: 3%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .profile__plus-button {
+        background-size: 6%;
+    }
+}
+
+
+.profile__plus-button:hover {
+    opacity: 0.6;
+    transition: ease-in-out .3s;
+}

@@ -1,0 +1,12 @@
+.popup__content {
+    max-width: 27.96875vw;
+    box-sizing: border-box;
+    margin: 1.875vw 2.8125vw 2.890625vw 2.8125vw;
+}
+
+@media screen and (max-width: 500px) {
+    .popup__content {
+        max-width: 74.375vw;
+        margin: 14.0625vw 6.8vw 7.8vw 6.8vw;
+    }
+}

@@ -1,0 +1,11 @@
+.cards__elements {
+    position: relative;
+    transition: transform .2s ease-out;
+
+}
+
+.cards__elements:hover {
+    transform: scale(1.02);
+}
+
+

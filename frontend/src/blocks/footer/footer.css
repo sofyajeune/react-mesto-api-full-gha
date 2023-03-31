@@ -1,0 +1,14 @@
+.footer {
+    max-width: 68.75vw;
+    margin: 0 auto;
+    padding-top: 5.234375vw;
+    padding-bottom: 4.6875vw;
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        max-width: 88.13vw;
+        padding-top: 15vw;
+        padding-bottom: 11.25vw;
+    }
+}
