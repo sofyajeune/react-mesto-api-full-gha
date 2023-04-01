@@ -5,7 +5,7 @@ const checkResponse = (res) => {
   return Promise.reject(res.status);
 }
 
-const BaseUrl = 'https://auth.nomoreparties.co';
+const BaseUrl = 'https://api.sofyajeune.mesto.nomoredomains.work';
 
 const signUp = (email, password) => {
   const requestUrl = BaseUrl + '/signup';
