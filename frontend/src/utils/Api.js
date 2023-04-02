@@ -88,10 +88,11 @@ class Api {
 }
 
 const options = {
-  link: 'https://api.sofyajeune.mesto.nomoredomains.work',
+  link: 'api.sofyajeune.mesto.nomoredomains.work',
   headers: {
-      authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      'Content-Type': 'application/json'
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    'Content-Type': 'application/json',
+    'Origin': 'sofyajeune.mesto.nomoredomains.work'
   }
 }
 

@@ -1,7 +1,7 @@
 // Импортируем модули
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+// const cors = require('cors');
 const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit'); // Защита от DDOS, лимиты
 const helmet = require('helmet');// Защита от XSS attack
@@ -14,8 +14,6 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 // Создаем приложение
 const app = express();
-
-app.use(cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
@@ -38,6 +36,7 @@ mongoose
     console.error(err);
   });
 
+// app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);

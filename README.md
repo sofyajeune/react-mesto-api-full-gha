@@ -6,7 +6,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.75.248
+IP 51.250.75.248
 
 Frontend https://sofyajeune.mesto.nomoredomains.work
 
