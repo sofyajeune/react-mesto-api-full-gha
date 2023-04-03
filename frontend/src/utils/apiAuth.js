@@ -13,7 +13,7 @@ const signUp = (email, password) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
   }).then(checkResponse);
@@ -25,7 +25,7 @@ const signIn = (email, password) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
     body: JSON.stringify({ email, password }),
   }).then(checkResponse);
@@ -37,7 +37,7 @@ const checkToken = (token) => {
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${token}`,
     },
   }).then(checkResponse);
 }
