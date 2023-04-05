@@ -28,25 +28,25 @@ class Api {
       .then(this._handleResponse)
   };
 
-  setUserInfo(name, about) {
+  setUserInfo(data) {
     return fetch(`${this.link}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
-        name: `${name}`,
-        about: `${about}`
+        name: data.name,
+        about: data.about
       })
     })
       .then(this._handleResponse)
   };
 
-  addNewCard(name, link) {
+  addNewCard(data) {
     return fetch(`${this.link}/cards`, {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({
-        name: `${name}`,
-        link: `${link}`
+        name: data.name,
+        link: data.link
       })
     })
       .then(this._handleResponse)
@@ -91,8 +91,8 @@ const options = {
   link: 'https://api.sofyajeune.mesto.nomoredomains.work',
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    'Content-Type': 'application/json',
-    'Origin': 'https://sofyajeune.mesto.nomoredomains.work'
+    Origin: 'http://localhost:3001',
+    'Content-Type': 'application/json'
   }
 }
 

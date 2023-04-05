@@ -13,11 +13,13 @@ const signUp = (email, password) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
-}
+  }).then((res) => {
+    return checkResponse(res)
+  })
+};
 
 const signIn = (email, password) => {
   const requestUrl = BaseUrl + '/signin';
@@ -25,21 +27,27 @@ const signIn = (email, password) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
-}
+  }).then((res) => {
+    return checkResponse(res)
+  })
+};
 
 const checkToken = (token) => {
   const requestUrl = BaseUrl + '/users/me';
   return fetch(requestUrl, {
     method: 'GET',
     headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Origin': 'http://localhost:3001',
+      "Authorization": `Bearer ${token}`
     },
-  }).then(checkResponse);
+  }).then((res) => {
+    return checkResponse(res)
+  })
 }
 
 export { signUp, signIn, checkToken };

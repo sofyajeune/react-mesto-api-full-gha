@@ -12,7 +12,7 @@ function Main(props) {
   return (
     <main>
       <section className="profile">
-        <img className="profile__avatar" src={`${currentUser.avatar}`} alt="Аватарка" />
+        <img className="profile__avatar" src={currentUser.avatar} alt="Аватарка" />
         <button type="button" className="profile__avatar-edit-button" aria-label="кнопка для изменения аватара" onClick={isEditAvatarPopupOpen} />
         <div className="profile__info">
           <h1 className="profile__name" id="name">{currentUser.name}</h1>
@@ -30,7 +30,7 @@ function Main(props) {
               onCardClick={onCardClick}
               onCardLike={onCardLike}
               onCardDelete={onCardDelete} />
-          ))}
+          )).reverse()}
         </div>
       </section>
     </main>

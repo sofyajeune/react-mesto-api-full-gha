@@ -21,8 +21,6 @@ import { signUp, signIn, checkToken } from '../utils/apiAuth';
 import checkmarkImg from '../images/checkmark.svg'
 import crossImg from '../images/cross.svg'
 
-
-
 function App() {
 
   //Стейт для карточек
@@ -48,7 +46,6 @@ function App() {
   const [isEditAvatarPopupOpen, setIsAvatarPopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setIsProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-
 
   //Авторизация
   function handleLogin(email, password) {
@@ -107,7 +104,7 @@ function App() {
           console.error(err);
         });
     }
-  }, []);
+  }, [navigate]);
 
   //Данные пользователя и карточки
   React.useEffect(() => {
@@ -116,12 +113,12 @@ function App() {
         api.getUserInfo(),
         api.getInitialCard()
       ])
-        .then(([res, cards]) => {
-          setCurrentUser(res)
-          setCards(cards);
+        .then(([user, card]) => {
+          setCurrentUser(user.data)
+          setCards(card.data);
         })
         .catch((err) => {
-          console.log(err);
+          console.log(`Ошибка при получении данных: ${err}`);
         })
     }
   }, [isLoggedIn]);
@@ -133,10 +130,9 @@ function App() {
 
   //Обработчик для отправки данных пользователя на сервер 
   function handleUpdateUser(user) {
-    api
-      .setUserInfo(user.name, user.about)
+    api.setUserInfo(user)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => console.log(err));
@@ -146,7 +142,7 @@ function App() {
   function handleUpdateAvatar(user) {
     api.addNewAvatar(user)
       .then(res => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch(err => console.log(err))
@@ -200,9 +196,9 @@ function App() {
 
   //Функция добавления карточки
   function handleAddPlace(card) {
-    api.addNewCard(card.name, card.link)
+    api.addNewCard(card)
       .then(res => {
-        setCards([res, ...cards]);
+        setCards([...cards, res.data]);
         closeAllPopups();
       })
       .catch(err => console.log(err))
