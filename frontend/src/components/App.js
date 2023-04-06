@@ -1,4 +1,3 @@
-
 import '../index.css';
 import React from 'react';
 import { api } from '../utils/Api';
@@ -142,7 +141,7 @@ function App() {
   function handleUpdateAvatar(user) {
     api.addNewAvatar(user)
       .then(res => {
-        setCurrentUser(res.data);
+        setCurrentUser({ ...currentUser, ...res.data });
         closeAllPopups();
       })
       .catch(err => console.log(err))
