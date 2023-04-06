@@ -21,9 +21,9 @@ const signUp = (email, password) => {
   })
 };
 
-const signIn = (email, password) => {
+const signIn = async (email, password) => {
   const requestUrl = BaseUrl + '/signin';
-  return fetch(requestUrl, {
+  return await fetch(requestUrl, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

@@ -50,10 +50,21 @@ function App() {
   function handleLogin(email, password) {
     signIn(email, password)
       .then((res) => {
-        localStorage.setItem('jwt', res.token);
+        localStorage.setItem('jwt', res.token)
+        checkToken(res.token)
+            .then((res) => {
+                if (res) {
+                    setIsLoggedIn(true);
+                    setEmailValue(res.data.email);
+                    navigate('/');
+                }
+                })
+            .catch((err) => {
+                console.error(err);
+            });
+      }).then(() => {
         setIsLoggedIn(true);
         setEmailValue(email);
-        navigate("/");
       })
       .catch(() => {
         setPopupStatus({ image: crossImg, message: 'Что-то пошло не так! Попробуйте еще раз.' });

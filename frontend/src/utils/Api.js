@@ -11,8 +11,8 @@ class Api {
     return Promise.reject('Ошибка')
   };
 
-  getUserInfo() {
-    return fetch(`${this.link}/users/me`, {
+  async getUserInfo() {
+    return await fetch(`${this.link}/users/me`, {
       method: "GET",
       headers: this.headers
     })
@@ -20,16 +20,16 @@ class Api {
   };
 
 
-  getInitialCard() {
-    return fetch(`${this.link}/cards`, {
+  async getInitialCard() {
+    return await fetch(`${this.link}/cards`, {
       method: "GET",
       headers: this.headers
     })
       .then(this._handleResponse)
   };
 
-  setUserInfo(data) {
-    return fetch(`${this.link}/users/me`, {
+  async setUserInfo(data) {
+    return await fetch(`${this.link}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
@@ -91,7 +91,7 @@ const options = {
   link: 'https://api.sofyajeune.mesto.nomoredomains.work',
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    Origin: 'http://localhost:3001',
+    Origin: 'https://sofyajeune.mesto.nomoredomains.work',
     'Content-Type': 'application/json'
   }
 }
